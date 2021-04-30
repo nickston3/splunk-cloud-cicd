@@ -43,7 +43,7 @@ def rest_auth(server_url,verify_cert):
 
     return session_key
 
-def rest_post(payload,session_key,server_url,verify_cert):
+def rest_post(data,session_key,server_url,verify_cert):
     headers = {
         'Authorization': 'Splunk %s' % session_key,
         'Content-Type': 'application/x-www-form-urlencoded'
@@ -52,7 +52,7 @@ def rest_post(payload,session_key,server_url,verify_cert):
     resp = requests.request(
         'POST',
         server_url,
-        data=payload,
+        data=data,
         verify=verify_cert,
         headers=headers
     )
